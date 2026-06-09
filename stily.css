@@ -1,375 +1,172 @@
-/* ==========================================================================
-   CONFIGURAÇÕES GERAIS (Paleta Frutiger Aero: Verdes, Azuis, Brancos e Brilho)
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* 1. Configurações Gerais e Cores Modernas */
+:root {
+    --verde-escuro: #1b4332;
+    --verde-principal: #2d6a4f;
+    --verde-claro: #52b788;
+    --verde-fundo: #f4f9f4;
+    --texto-escuro: #2d3748;
+    --branco: #ffffff;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografia limpa da época */
-    background: linear-gradient(135deg, #e0f2fe 0%, #e8f5e9 50%, #bae6fd 100%);
-    background-attachment: fixed;
-    color: #1e293b;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--texto-escuro);
+    background-color: var(--verde-fundo);
+    margin: 0;
+    padding: 0;
     line-height: 1.6;
 }
 
-/* ==========================================================================
-   CABEÇALHO E NAVEGAÇÃO (Efeito Vidro / Glossy)
-   ========================================================================== */
+/* 2. Menu de Navegação Elegante */
 header {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(240, 253, 244, 0.6) 100%);
-    backdrop-filter: blur(10px); /* Efeito Windows Aero de transparência */
-    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background-color: var(--branco);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 120, 215, 0.15);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.logo h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    background: linear-gradient(45deg, #0284c7, #22c55e);
-    -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
-}
-
-.logo p {
-    font-size: 0.85rem;
-    color: #059669;
-    font-weight: 600;
+header h1 {
+    color: var(--verde-escuro);
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
-nav ul li a {
+nav a {
     text-decoration: none;
-    color: #0369a1;
+    color: var(--texto-escuro);
     font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    border: 1px solid transparent;
+    transition: color 0.3s ease;
 }
 
-/* Efeito de brilho ao passar o mouse */
-nav ul li a:hover {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(56, 189, 248, 0.3));
-    border: 1px solid rgba(56, 189, 248, 0.5);
-    color: #0284c7;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+nav a:hover {
+    color: var(--verde-claro);
 }
 
-/* ==========================================================================
-   SEÇÃO HERO (Destaque Principal)
-   ========================================================================== */
-#hero {
-    background: radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.2) 0%, rgba(14, 165, 233, 0.15) 100%),
-                url('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-    /* Dica para o Agrinho: Substitua a URL acima por uma imagem bonita de natureza ou plantações brilhantes */
-    padding: 100px 5%;
-    text-align: left;
-    border-bottom: 4px solid #4ade80;
-    position: relative;
-    overflow: hidden;
+/* 3. Seção Hero (Abertura Impactante) */
+.hero {
+    background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-principal) 100%);
+    color: var(--branco);
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 0 0 50px 50px; /* Curvatura moderna no fundo */
 }
 
-/* Reflexo característico do Frutiger Aero sobre o banner */
-#hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -10%;
-    width: 120%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.15);
-    transform: rotate(-12deg);
-    pointer-events: none;
-}
-
-.hero-content {
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.75);
-    padding: 30px;
-    border-radius: 24px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.hero-content h2 {
+.hero h2 {
     font-size: 2.5rem;
-    color: #0369a1;
-    line-height: 1.2;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-.hero-content p {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-    color: #334155;
-}
-
-/* Botão Estilo Brilhante/Gel */
-.btn-principal {
+.hero .btn {
     display: inline-block;
-    padding: 12px 28px;
-    background: linear-gradient(to bottom, #4ade80 0%, #22c55e 50%, #16a34a 100%);
-    color: white;
+    background-color: var(--verde-claro);
+    color: var(--branco);
+    padding: 12px 30px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 30px;
-    border: 1px solid #15803d;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 15px rgba(34, 197, 94, 0.4);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(82, 183, 136, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s;
 }
 
-.btn-principal:hover {
-    transform: translateY(-2px);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 20px rgba(34, 197, 94, 0.6);
-    background: linear-gradient(to bottom, #22c55e 0%, #16a34a 100%);
+.hero .btn:hover {
+    transform: translateY(-3px);
+    background-color: #74c69d;
 }
 
-/* ==========================================================================
-   CONTEÚDO PRINCIPAL E SEÇÕES
-   ========================================================================== */
-main {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
+/* 4. Estilização dos Cards e Conteúdo */
 section {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
-    backdrop-filter: blur(4px);
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--branco);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-section h2 {
-    font-size: 2rem;
-    color: #0284c7;
-    margin-bottom: 20px;
-    border-bottom: 2px dashed #bae6fd;
-    padding-bottom: 10px;
+h2, h3, h4 {
+    color: var(--verde-escuro);
 }
 
-.subtitulo {
-    font-style: italic;
-    color: #64748b;
-    margin-bottom: 25px;
-}
-
-/* ==========================================================================
-   CARDS (Os 3 Pilares) - Estilo Bolha de Vidro
-   ========================================================================== */
-.cards-container {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.card {
-    flex: 1;
-    min-width: 280px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(240,253,244,0.5) 100%);
-    border-radius: 16px;
-    padding: 25px;
-    border: 1px solid rgba(255,255,255,0.9);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03), inset 0 0 15px rgba(255,255,255,0.6);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.03);
-    border-color: #4ade80;
-    box-shadow: 0 8px 25px rgba(34, 197, 94, 0.15);
-}
-
-.card h3 {
-    color: #16a34a;
-    margin-bottom: 12px;
-}
-
-/* ==========================================================================
-   ARTICLES (ODS da ONU)
-   ========================================================================== */
-.lista-ods {
+/* Estilo para os Pilares (Grid de 3 Colunas) */
+.pilares-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
+    margin-top: 20px;
 }
 
-.item-ods {
-    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(224,242,254,0.5) 100%);
-    padding: 20px;
+.pilar-card {
+    background: var(--verde-fundo);
+    padding: 25px;
     border-radius: 12px;
-    border-left: 5px solid #38bdf8;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    border-left: 5px solid var(--verde-principal);
 }
 
-.item-ods h4 {
-    color: #0369a1;
-    margin-bottom: 8px;
-}
-
-/* ==========================================================================
-   TABELA (Práticas Campo e Cidade)
-   ========================================================================== */
-.tabela-sustentavel {
-    overflow-x: auto;
-}
-
+/* 5. Tabela com Visual de Aplicativo */
 table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
+    border-collapse: collapse;
+    margin-top: 20px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-th, td {
+th {
+    background-color: var(--verde-principal);
+    color: var(--branco);
     padding: 15px;
     text-align: left;
 }
 
-th {
-    background: linear-gradient(to bottom, #0284c7 0%, #0369a1 100%);
-    color: white;
-    font-weight: 600;
+td {
+    padding: 15px;
+    background-color: var(--branco);
+    border-bottom: 1px solid #edf2f7;
 }
 
-th:last-child {
-    background: linear-gradient(to bottom, #22c55e 0%, #16a34a 100%);
+tr:hover td {
+    background-color: #f8faf8;
 }
 
-tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.4);
-}
-
-tr:nth-child(odd) {
-    background-color: rgba(241, 245, 249, 0.5);
-}
-
-td strong {
-    color: #0f172a;
-}
-
-/* ==========================================================================
-   INTERATIVIDADE (Simulador/Formulário)
-   ========================================================================== */
-.Formulario-simulador {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 20px 0;
-}
-
-label {
-    font-weight: 600;
-    color: #334155;
-}
-
-/* Select Estilo Aqua/Glossy */
-select {
+/* 6. Simulador / Interatividade */
+select, button {
     padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #cbd5e1;
-    background: white;
+    border-radius: 8px;
+    border: 1px solid #cbd5e0;
     font-size: 1rem;
-    color: #334155;
-    outline: none;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
-    transition: border-color 0.3s;
 }
 
-select:focus {
-    border-color: #38bdf8;
-    box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
-}
-
-/* Botão do simulador */
-.Formulario-simulador button {
-    padding: 12px;
-    background: linear-gradient(to bottom, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+button {
+    background-color: var(--verde-escuro);
     color: white;
-    border: 1px solid #0369a1;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: bold;
+    border: none;
     cursor: pointer;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(14, 165, 233, 0.3);
-    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
-    transition: all 0.2s;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
-.Formulario-simulador button:hover {
-    background: linear-gradient(to bottom, #0ea5e9 0%, #0284c7 100%);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 6px 15px rgba(14, 165, 233, 0.5);
+button:hover {
+    background-color: var(--verde-principal);
 }
 
-#resultado-impacto {
-    margin-top: 20px;
-    padding: 20px;
-    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border: 1px dashed #22c55e;
-    border-radius: 12px;
-    color: #16a34a;
-    font-weight: 600;
-    text-align: center;
-}
-
-/* ==========================================================================
-   RODAPÉ (Footer)
-   ========================================================================== */
+/* Rodapé */
 footer {
-    background: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
-    color: #94a3b8;
     text-align: center;
-    padding: 30px 20px;
+    padding: 30px;
+    color: #718096;
     font-size: 0.9rem;
-    border-top: 4px solid #0ea5e9;
-}
-
-footer p {
-    margin: 5px 0;
-}
-
-/* RESPONSIVIDADE (Para funcionar bem em celulares e tablets) */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    #hero {
-        padding: 60px 20px;
-    }
-
-    .hero-content h2 {
-        font-size: 1.8rem;
-    }
 }
